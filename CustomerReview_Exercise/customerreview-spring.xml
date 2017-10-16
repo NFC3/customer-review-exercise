@@ -26,6 +26,12 @@
 		<property name="customerReviewDao" ref="customerReviewDao"/>
 	</bean>
 
+	<alias alias="customCustomerReviewServiceValidation" name="customCustomerReviewService"/>
+	<bean id="customCustomerReviewService" class="de.hybris.platform.customerreview.impl.CustomCustomerReviewService" parent="defaultCustomerReviewService" scope="tenant">
+		<property name="customerReviewDao" ref="customerReviewDao"/>
+		<property name="curseWordsDataFile" value="dataFiles/curseWords.txt"/>
+	</bean>
+
 	<alias alias="customerReviewDao" name="defaultCustomerReviewDao"/>
 	<bean id="defaultCustomerReviewDao" class="de.hybris.platform.customerreview.dao.impl.DefaultCustomerReviewDao" parent="abstractItemDao" scope="tenant"/>
 
