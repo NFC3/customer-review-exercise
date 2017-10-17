@@ -39,6 +39,9 @@ public class CustomCustomerReviewService extends DefaultCustomerReviewService im
 	}
 
 	//1 - Get the number of reviews for a product whose rating is between a given range, inclusive.
+	//Ideally, instead of making use of getAllReviews() in the superclass and filtering out the reviews
+	//based on criteria, we should run a query on the database that retrieves this result.
+	//I decided to make use of getAllReviews() in the superclass since the database structure wasn't completely disclosed.
 	public Integer getNumberOfReviews(ProductModel product, int min, int max) {
 		
 		int reviewCount=0;
